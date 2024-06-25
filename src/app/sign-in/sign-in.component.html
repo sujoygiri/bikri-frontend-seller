@@ -5,38 +5,56 @@
                 <label for="sellername">Seller name / Company name</label>
                 <p-iconField>
                     <p-inputIcon styleClass="pi pi-user" />
-                    <input pInputText [ngClass]="{'w-full':true}" type="text" name="sellername" id="sellername" formControlName="sellername">
+                    <input pInputText [ngClass]="{'w-full':true}" type="text" name="sellername" id="sellername"
+                        formControlName="sellername">
                 </p-iconField>
-                <div class="text-sm mt-1" id="sellername-validation-error" *ngIf="signinForm.controls['sellername']?.invalid && signinForm.controls['sellername']?.dirty">
-                    <span class="text-red-600" *ngIf="signinForm.controls['sellername']?.errors?.['required']">Name is required</span>
-                    <span class="text-red-600" *ngIf="signinForm.controls['sellername']?.errors?.['minlength']">Name must contain at least 3 character</span>
-                    <span class="text-red-600" *ngIf="signinForm.controls['sellername']?.errors?.['maxlength']">Name must not exceed 50 character</span>
+                <div class="text-sm mt-1" id="sellername-validation-error"
+                    *ngIf="signinForm.controls['sellername']?.invalid && signinForm.controls['sellername']?.dirty">
+                    <span class="text-red-600" *ngIf="signinForm.controls['sellername']?.errors?.['required']">Name is
+                        required</span>
+                    <span class="text-red-600" *ngIf="signinForm.controls['sellername']?.errors?.['minlength']">Name
+                        must contain at least 3 character</span>
+                    <span class="text-red-600" *ngIf="signinForm.controls['sellername']?.errors?.['maxlength']">Name
+                        must not exceed 50 character</span>
                 </div>
             </div>
             <div class="field flex flex-column mt-4">
                 <label for="email">Email id</label>
                 <p-iconField>
                     <p-inputIcon styleClass="pi pi-at" />
-                    <input pInputText  class="w-full" type="email" name="email" id="email" formControlName="email">
+                    <input pInputText class="w-full" type="email" name="email" id="email" formControlName="email">
                 </p-iconField>
-                <div class="text-sm mt-1" id="email-validation-error" *ngIf="signinForm.controls['email']?.invalid && signinForm.controls['email']?.dirty">
-                    <span class="text-red-600" *ngIf="signinForm.controls['email']?.errors?.['required']">Email is required</span>
-                    <span class="text-red-600" *ngIf="signinForm.controls['email']?.errors?.['email']">Invalid email id</span>
+                <div class="text-sm mt-1" id="email-validation-error"
+                    *ngIf="signinForm.controls['email']?.invalid && signinForm.controls['email']?.dirty">
+                    <span class="text-red-600" *ngIf="signinForm.controls['email']?.errors?.['required']">Email is
+                        required</span>
+                    <span class="text-red-600" *ngIf="signinForm.controls['email']?.errors?.['email']">Invalid email
+                        id</span>
                 </div>
             </div>
-            <div class="field flex flex-column mt-4">
+            <div class="field flex flex-column relative mt-4">
                 <label for="password">Password</label>
                 <p-iconField>
                     <p-inputIcon styleClass="pi pi-lock" />
-                    <input pInputText class="w-full" type="password" name="password" id="password" formControlName="password">
+                    <input pInputText class="w-full" type="password" name="password" id="password"
+                        formControlName="password">
                 </p-iconField>
-                <div class="text-sm mt-1" id="password-validation-error" *ngIf="signinForm.controls['password']?.invalid && signinForm.controls['password']?.dirty">
-                    <span class="text-red-600" *ngIf="signinForm.controls['password']?.errors?.['required']">Password is required</span>
-                    <span class="text-red-600" *ngIf="signinForm.controls['password']?.errors?.['pattern']">Password must be 6 character long and contain 1 uppercase letter, 1 lowercase letter, 1 digit and 1 special character</span>
+                <p class="absolute right-0 top-0 mr-1 mt-1 mb-0 cursor-pointer text-xs text-red-400" id="show-btn"
+                    (click)="showPassword()">Show
+                </p>
+                <div class="text-sm mt-1" id="password-validation-error"
+                    *ngIf="signinForm.controls['password']?.invalid && signinForm.controls['password']?.dirty">
+                    <span class="text-red-600" *ngIf="signinForm.controls['password']?.errors?.['required']">Password is
+                        required</span>
+                    <span class="text-red-600" *ngIf="signinForm.controls['password']?.errors?.['pattern']">
+                        Password must be 6 character long and contain at least 1 uppercase letter, 1 lowercase letter, 1
+                        digit and 1 special character from !&#64;#%^&*
+                    </span>
                 </div>
             </div>
             <div class="flex flex-column">
-                <p-button type="submit" label="Submit" severity="info" styleClass="w-full" [disabled]="signinForm.invalid" [raised]="true" [rounded]="true"/>
+                <p-button type="submit" label="Submit" severity="info" styleClass="w-full"
+                    [disabled]="signinForm.invalid" [raised]="true" [rounded]="true" />
             </div>
         </form>
         <p>Don't have an account? <a routerLink="/sign-up">Sign up</a></p>
