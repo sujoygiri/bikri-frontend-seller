@@ -1,23 +1,6 @@
 <div class="flex flex-column align-items-center">
     <p-card styleClass="mt-4" [style]="{width:'400px'}">
         <form method="post" [formGroup]="signinForm" (ngSubmit)="handelFormSubmit()">
-            <div class="field flex flex-column">
-                <label for="sellername">Seller name / Company name</label>
-                <p-iconField>
-                    <p-inputIcon styleClass="pi pi-user" />
-                    <input pInputText [ngClass]="{'w-full':true}" type="text" name="sellername" id="sellername"
-                        formControlName="sellername">
-                </p-iconField>
-                <div class="text-sm mt-1" id="sellername-validation-error"
-                    *ngIf="signinForm.controls['sellername']?.invalid && signinForm.controls['sellername']?.dirty">
-                    <span class="text-red-600" *ngIf="signinForm.controls['sellername']?.errors?.['required']">Name is
-                        required</span>
-                    <span class="text-red-600" *ngIf="signinForm.controls['sellername']?.errors?.['minlength']">Name
-                        must contain at least 3 character</span>
-                    <span class="text-red-600" *ngIf="signinForm.controls['sellername']?.errors?.['maxlength']">Name
-                        must not exceed 50 character</span>
-                </div>
-            </div>
             <div class="field flex flex-column mt-4">
                 <label for="email">Email id</label>
                 <p-iconField>
@@ -45,10 +28,7 @@
                 <div class="text-sm mt-1" id="password-validation-error"
                     *ngIf="signinForm.controls['password']?.invalid && signinForm.controls['password']?.dirty">
                     <span class="text-red-600" *ngIf="signinForm.controls['password']?.errors?.['required']">Password is
-                        required</span>
-                    <span class="text-red-600" *ngIf="signinForm.controls['password']?.errors?.['pattern']">
-                        Password must be 6 character long and contain at least 1 uppercase letter, 1 lowercase letter, 1
-                        digit and 1 special character from !&#64;#%^&*
+                        required
                     </span>
                 </div>
             </div>
