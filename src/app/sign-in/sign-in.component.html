@@ -39,7 +39,8 @@
                     <input pInputText class="w-full" type="password" name="password" id="password"
                         formControlName="password">
                 </p-iconField>
-                <p class="absolute right-0 top-0 mr-1 mt-1 mb-0 cursor-pointer text-xs text-red-400" id="show-btn"
+                <p *ngIf="signinForm.controls['password']?.dirty"
+                    class="absolute right-0 top-0 mr-1 mt-1 mb-0 cursor-pointer text-xs text-red-400" id="show-btn"
                     (click)="showPassword()">Show
                 </p>
                 <div class="text-sm mt-1" id="password-validation-error"
