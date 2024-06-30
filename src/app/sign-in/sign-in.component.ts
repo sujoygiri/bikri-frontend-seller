@@ -30,9 +30,8 @@ export class SignInComponent implements OnInit {
 
   ngOnInit(): void {
     this.signinForm = this.formBuilder.group({
-      sellername: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.pattern(/^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/)]]
+      password: ['', [Validators.required]]
     });
   }
   handelFormSubmit() {
@@ -43,7 +42,6 @@ export class SignInComponent implements OnInit {
     let passwordElementNode = this.elementRef.nativeElement.querySelector("#password");
     let showBtnElementNode = this.elementRef.nativeElement.querySelector("#show-btn");
     if (showBtnElementNode.innerText === 'Show') {
-
       showBtnElementNode.classList.add('text-blue-400');
       showBtnElementNode.classList.remove('text-red-400');
       showBtnElementNode.innerText = 'Hide';

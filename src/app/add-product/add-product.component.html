@@ -1,0 +1,80 @@
+<section>
+    <div class="container mx-4">
+        <div class="grid text-center mt-2">
+            <div class="col">
+                <h2 class="m-0">Add a new Product</h2>
+            </div>
+            <!-- <div class="col sm:block">
+                <div class="flex gap-3 flex-column md:flex-row ">
+                    <p-button styleClass="w-6" label="Discard" [outlined]="true" [raised]="true" icon="pi pi-times" severity="danger" size="small" />
+                    <p-button label="Save draft" [outlined]="true" [raised]="true" icon="pi pi-file-o" severity="info" size="small"/>
+                    <p-button label="Publish product" [raised]="true" icon="pi pi-check-circle" severity="success" size="small"/>
+                </div>
+            </div> -->
+        </div>
+        <div class="grid">
+            <div class="col-8">
+                <p-card header="Product information">
+                    <div class="field flex flex-column">
+                        <label for="name">Name</label>
+                        <input pInputText id="name" placeholder="Product title" />
+                    </div>
+                    <div class="field flex flex-column">
+                        <label for="description">Description</label>
+                        <p-editor [style]="{ height: '320px' }">
+                            <ng-template pTemplate="header">
+                                <span class="ql-formats">
+                                    <span class="ql-formats"></span>
+                                    <button type="button" class="ql-bold" aria-label="Bold"></button>
+                                    <button type="button" class="ql-italic" aria-label="Italic"></button>
+                                    <button type="button" class="ql-underline" aria-label="Underline"></button>
+                                    <button type="button" class="ql-strike" aria-label="Strike"></button>
+                                </span>
+                                <span class="ql-formats">
+                                    <button type="button" class="ql-list" value="ordered" aria-label="List"></button>
+                                    <button type="button" class="ql-list" value="bullet" aria-label="List"></button>
+                                    <select class="ql-align">
+                                        <option></option>
+                                        <option value="center"></option>
+                                        <option value="right"></option>
+                                        <option value="justify"></option>
+                                    </select>
+                                </span>
+                                <span class="ql-formats">
+                                    <select class="ql-size">
+                                        <option value="small"></option>
+                                        <option></option>
+                                        <option value="large"></option>
+                                        <!-- <option value="huge"></option> -->
+                                    </select>
+                                </span>
+                            </ng-template>
+                        </p-editor>
+                    </div>
+                </p-card>
+            </div>
+            <div class="col-4">
+                <p-card header="Pricing">
+                    <div class="field flex flex-column">
+                        <label class="text-xs" for="base-price">BASE PRICE</label>
+                        <input pInputText type="text" name="base-price" id="base-price" placeholder="Price">
+                    </div>
+                    <div class="field flex flex-column">
+                        <label class="text-xs" for="base-price">DISCOUNTED PRICE</label>
+                        <input pInputText type="text" name="discounted-price" id="discounted-price" placeholder="Discounted price">
+                    </div>
+                </p-card>
+                <p-card header="Pricing" styleClass="mt-4">
+                    <div class="field flex flex-column">
+                        <label class="text-xs" for="base-price">BASE PRICE</label>
+                        <input pInputText type="text" name="base-price" id="base-price" placeholder="Price">
+                    </div>
+                    <div class="field flex flex-column">
+                        <label class="text-xs" for="base-price">DISCOUNTED PRICE</label>
+                        <input pInputText type="text" name="discounted-price" id="discounted-price" placeholder="Discounted price">
+                    </div>
+                </p-card>
+            </div>
+        </div>
+    </div>
+</section>
