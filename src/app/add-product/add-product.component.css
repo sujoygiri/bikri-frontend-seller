@@ -1,0 +1,4 @@
+
+.product-info p-card ::ng-deep .p-card-body{
+    padding: 1rem;
+}

@@ -1,80 +1,182 @@
 <section>
-    <div class="container mx-4">
-        <div class="grid text-center mt-2">
-            <div class="col">
-                <h2 class="m-0">Add a new Product</h2>
-            </div>
-            <!-- <div class="col sm:block">
-                <div class="flex gap-3 flex-column md:flex-row ">
-                    <p-button styleClass="w-6" label="Discard" [outlined]="true" [raised]="true" icon="pi pi-times" severity="danger" size="small" />
-                    <p-button label="Save draft" [outlined]="true" [raised]="true" icon="pi pi-file-o" severity="info" size="small"/>
-                    <p-button label="Publish product" [raised]="true" icon="pi pi-check-circle" severity="success" size="small"/>
-                </div>
-            </div> -->
-        </div>
-        <div class="grid">
-            <div class="col-8">
-                <p-card header="Product information">
-                    <div class="field flex flex-column">
-                        <label for="name">Name</label>
-                        <input pInputText id="name" placeholder="Product title" />
-                    </div>
-                    <div class="field flex flex-column">
-                        <label for="description">Description</label>
-                        <p-editor [style]="{ height: '320px' }">
-                            <ng-template pTemplate="header">
-                                <span class="ql-formats">
-                                    <span class="ql-formats"></span>
-                                    <button type="button" class="ql-bold" aria-label="Bold"></button>
-                                    <button type="button" class="ql-italic" aria-label="Italic"></button>
-                                    <button type="button" class="ql-underline" aria-label="Underline"></button>
-                                    <button type="button" class="ql-strike" aria-label="Strike"></button>
-                                </span>
-                                <span class="ql-formats">
-                                    <button type="button" class="ql-list" value="ordered" aria-label="List"></button>
-                                    <button type="button" class="ql-list" value="bullet" aria-label="List"></button>
-                                    <select class="ql-align">
-                                        <option></option>
-                                        <option value="center"></option>
-                                        <option value="right"></option>
-                                        <option value="justify"></option>
-                                    </select>
-                                </span>
-                                <span class="ql-formats">
-                                    <select class="ql-size">
-                                        <option value="small"></option>
-                                        <option></option>
-                                        <option value="large"></option>
-                                        <!-- <option value="huge"></option> -->
-                                    </select>
-                                </span>
-                            </ng-template>
-                        </p-editor>
-                    </div>
-                </p-card>
-            </div>
-            <div class="col-4">
-                <p-card header="Pricing">
-                    <div class="field flex flex-column">
-                        <label class="text-xs" for="base-price">BASE PRICE</label>
-                        <input pInputText type="text" name="base-price" id="base-price" placeholder="Price">
-                    </div>
-                    <div class="field flex flex-column">
-                        <label class="text-xs" for="base-price">DISCOUNTED PRICE</label>
-                        <input pInputText type="text" name="discounted-price" id="discounted-price" placeholder="Discounted price">
-                    </div>
-                </p-card>
-                <p-card header="Pricing" styleClass="mt-4">
-                    <div class="field flex flex-column">
-                        <label class="text-xs" for="base-price">BASE PRICE</label>
-                        <input pInputText type="text" name="base-price" id="base-price" placeholder="Price">
-                    </div>
-                    <div class="field flex flex-column">
-                        <label class="text-xs" for="base-price">DISCOUNTED PRICE</label>
-                        <input pInputText type="text" name="discounted-price" id="discounted-price" placeholder="Discounted price">
-                    </div>
-                </p-card>
-            </div>
-        </div>
+    <div class="container mt-4 md:mx-4">
+        <p-card styleClass="p-fluid">
+            <ng-template pTemplate="content">
+                <p-stepper [linear]="true">
+                    <p-stepperPanel header="Info">
+                        <ng-template pTemplate="content" let-nextCallback="nextCallback" let-index="index">
+                            <div class="field">
+                                <!-- <div class="grid text-center mt-2">
+                                    <div class="col">
+                                        <h2 class="m-0">Add a new Product</h2>
+                                    </div>
+                                    <div class="col sm:block">
+                                        <div class="flex gap-3 flex-column md:flex-row ">
+                                            <p-button styleClass="w-6" label="Discard" [outlined]="true" [raised]="true" icon="pi pi-times" severity="danger" size="small" />
+                                            <p-button label="Save draft" [outlined]="true" [raised]="true" icon="pi pi-file-o" severity="info" size="small"/>
+                                            <p-button label="Publish product" [raised]="true" icon="pi pi-check-circle" severity="success" size="small"/>
+                                        </div>
+                                    </div>
+                                </div> -->
+                                <div class="grid">
+                                    <div class="col-12 lg:col-8 product-info">
+                                        <p-card header="Product information" styleClass="p-fluid ">
+                                            <div class="field flex flex-column">
+                                                <label for="name">Name</label>
+                                                <input pInputText id="name" placeholder="Product title" />
+                                            </div>
+                                            <div class="field flex flex-column">
+                                                <label for="description">Description</label>
+                                                <p-editor [style]="{ height: '320px' }">
+                                                    <ng-template pTemplate="header">
+                                                        <span class="ql-formats">
+                                                            <span class="ql-formats"></span>
+                                                            <button type="button" class="ql-bold"
+                                                                aria-label="Bold"></button>
+                                                            <button type="button" class="ql-italic"
+                                                                aria-label="Italic"></button>
+                                                            <button type="button" class="ql-underline"
+                                                                aria-label="Underline"></button>
+                                                            <button type="button" class="ql-strike"
+                                                                aria-label="Strike"></button>
+                                                        </span>
+                                                        <span class="ql-formats">
+                                                            <button type="button" class="ql-list" value="ordered"
+                                                                aria-label="List"></button>
+                                                            <button type="button" class="ql-list" value="bullet"
+                                                                aria-label="List"></button>
+                                                            <select class="ql-align">
+                                                                <option></option>
+                                                                <option value="center"></option>
+                                                                <option value="right"></option>
+                                                                <option value="justify"></option>
+                                                            </select>
+                                                        </span>
+                                                        <span class="ql-formats mt-2 sm:mt-0">
+                                                            <select class="ql-size">
+                                                                <option value="small"></option>
+                                                                <option></option>
+                                                                <option value="large"></option>
+                                                                <!-- <option value="huge"></option> -->
+                                                            </select>
+                                                        </span>
+                                                    </ng-template>
+                                                </p-editor>
+                                            </div>
+                                            <div class="field flex flex-column">
+                                                <p-tabMenu styleClass="flex flex-column" [model]="tabMenuItems"
+                                                    [activeItem]="currentActiveTab"
+                                                    (activeItemChange)="onActiveTabChange($event)" />
+                                                <div class="field mt-2" *ngIf="currentActiveTab?.label === 'Stock'">
+                                                    <label for="stock" class="text-xs">TOTAL STOCK</label>
+                                                    <p-inputNumber inputId="integeronly" [min]="1" />
+                                                </div>
+                                                <div class="field mt-2" *ngIf="currentActiveTab?.label === 'Shipping'">
+                                                    <h2>Shipping Type</h2>
+                                                    <div class="flex flex-column">
+                                                        <div class="field-checkbox">
+                                                            <p-radioButton name="shipping" value="o"
+                                                                inputId="shipping-type-1" />
+                                                            <label class="text-sm ml-2" for="shipping-type-1">FULFILLED
+                                                                BY
+                                                                SELLER</label>
+                                                        </div>
+                                                        <div class="field-checkbox">
+                                                            <p-radioButton name="shipping" value="C"
+                                                                inputId="shipping-type-2" />
+                                                            <label class="text-sm ml-2" for="shipping-type-2">FULFILLED
+                                                                BY BIKRI
+                                                                <p-tag value="RECOMMENDED" severity="warning"
+                                                                    [rounded]="true" styleClass="text-xs" /></label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="field mt-2"
+                                                    *ngIf="currentActiveTab?.label === 'Attributes'">
+                                                    <label for="stock" class="text-xs">TOTAL STOCK</label>
+                                                    <p-inputNumber inputId="integeronly" [min]="1" />
+                                                </div>
+                                            </div>
+                                        </p-card>
+                                    </div>
+                                    <div class="col-12 lg:col-4">
+                                        <p-card header="Pricing" styleClass="p-fluid">
+                                            <div class="field flex flex-column">
+                                                <label class="text-xs" for="base-price">BASE PRICE</label>
+                                                <input pInputText type="text" name="base-price" id="base-price"
+                                                    placeholder="Price">
+                                            </div>
+                                            <div class="field flex flex-column">
+                                                <label class="text-xs" for="discounted-price">DISCOUNTED PRICE</label>
+                                                <input pInputText id="discounted-price" type="text"
+                                                    name="discounted-price" id="discounted-price"
+                                                    placeholder="Discounted price">
+                                            </div>
+                                        </p-card>
+                                        <p-card header="Organize" styleClass="p-fluid">
+                                            <div class="field flex flex-column">
+                                                <label class="text-xs" for="category">CATEGORY</label>
+                                                <p-dropdown id="category" [options]="category" optionLabel="name"
+                                                    [(ngModel)]="selectedCategory" placeholder="Select category"
+                                                    (onChange)="populateSubcategory()" />
+                                            </div>
+                                            <div class="field flex flex-column">
+                                                <label class="text-xs" for="sub-category">SUB CATEGORY</label>
+                                                <p-dropdown [options]="currentSubCategory" id="sub-category"
+                                                    optionLabel="name" placeholder="Select sub category" />
+                                            </div>
+                                            <div class="field flex flex-column">
+                                                <label class="text-xs" for="tags">TAGS -
+                                                    &#40;{{availableTags}}&#41;</label>
+                                                <p-chips id="tags" [(ngModel)]="allTags" [max]="maximumTagsAllowed"
+                                                    placeholder="Press enter to add tags" (onAdd)="updateAllowedTags()"
+                                                    (onRemove)="updateAllowedTags()" />
+                                            </div>
+                                        </p-card>
+                                        <p-card header="Variants" styleClass="p-fluid">
+                                            <div class="field flex flex-column gap-3">
+                                                <div class="flex flex-column gap-1">
+                                                    <label for="height" class="text-xs">HEIGHT</label>
+                                                    <input type="text" pInputText placeholder="Eg: 10 CM or 3 FT" />
+                                                </div>
+                                                <div class="flex flex-column gap-1">
+                                                    <label for="height" class="text-xs">WEIGHT</label>
+                                                    <input type="text" pInputText placeholder="Eg: 10 CM or 3 FT" />
+                                                </div>
+                                                <div class="flex flex-column gap-1">
+                                                    <label for="height" class="text-xs">COLOR</label>
+                                                    <input type="text" pInputText placeholder="Eg: Navy blue" />
+                                                </div>
+                                            </div>
+                                        </p-card>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex pt-4 justify-content-end">
+                                <p-button label="Next" icon="pi pi-arrow-right" iconPos="right"
+                                    (onClick)="nextCallback.emit()" />
+                            </div>
+                        </ng-template>
+                    </p-stepperPanel>
+                    <p-stepperPanel header="Header II">
+                        <ng-template pTemplate="content" let-prevCallback="prevCallback" let-nextCallback="nextCallback"
+                            let-index="index">
+                            <div class="flex pt-4 justify-content-between">
+                                <p-button label="Back" icon="pi pi-arrow-left" (onClick)="prevCallback.emit()" />
+                                <p-button label="Next" icon="pi pi-arrow-right" iconPos="right"
+                                    (onClick)="nextCallback.emit()" />
+                            </div>
+                        </ng-template>
+                    </p-stepperPanel>
+                    <p-stepperPanel header="Header III">
+                        <ng-template pTemplate="content" let-prevCallback="prevCallback" let-index="index">
+                            <div class="flex pt-4 justify-content-start">
+                                <p-button label="Back" icon="pi pi-arrow-left" (onClick)="prevCallback.emit()" />
+                            </div>
+                        </ng-template>
+                    </p-stepperPanel>
+                </p-stepper>
+            </ng-template>
+        </p-card>
     </div>
 </section>
