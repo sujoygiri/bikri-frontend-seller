@@ -13,14 +13,14 @@
             </div> -->
         </div>
         <div class="grid">
-            <div class="col-8">
+            <div class="col-12 lg:col-8">
                 <p-card header="Product information">
                     <div class="field flex flex-column">
-                        <label for="name">Name</label>
+                        <label for="name" class="text-sm">NAME</label>
                         <input pInputText id="name" placeholder="Product title" />
                     </div>
                     <div class="field flex flex-column">
-                        <label for="description">Description</label>
+                        <label for="description" class="text-sm">DESCRIPTIONS</label>
                         <p-editor [style]="{ height: '320px' }">
                             <ng-template pTemplate="header">
                                 <span class="ql-formats">
@@ -53,25 +53,25 @@
                     </div>
                 </p-card>
             </div>
-            <div class="col-4">
+            <div class="col-12 lg:col-4">
                 <p-card header="Pricing">
                     <div class="field flex flex-column">
                         <label class="text-xs" for="base-price">BASE PRICE</label>
-                        <input pInputText type="text" name="base-price" id="base-price" placeholder="Price">
+                        <input pInputText type="text" name="base-price" id="base-price">
                     </div>
                     <div class="field flex flex-column">
                         <label class="text-xs" for="base-price">DISCOUNTED PRICE</label>
-                        <input pInputText type="text" name="discounted-price" id="discounted-price" placeholder="Discounted price">
+                        <input pInputText type="text" name="discounted-price" id="discounted-price">
                     </div>
                 </p-card>
-                <p-card header="Pricing" styleClass="mt-4">
+                <p-card header="Organize" styleClass="mt-4">
                     <div class="field flex flex-column">
-                        <label class="text-xs" for="base-price">BASE PRICE</label>
-                        <input pInputText type="text" name="base-price" id="base-price" placeholder="Price">
+                        <label class="text-xs" for="base-price">CATEGORY</label>
+                        <input pInputText type="text" name="base-price" id="base-price">
                     </div>
                     <div class="field flex flex-column">
-                        <label class="text-xs" for="base-price">DISCOUNTED PRICE</label>
-                        <input pInputText type="text" name="discounted-price" id="discounted-price" placeholder="Discounted price">
+                        <label class="text-xs" for="base-price">SUB CATEGORY</label>
+                        <input pInputText type="text" name="discounted-price" id="discounted-price">
                     </div>
                 </p-card>
             </div>

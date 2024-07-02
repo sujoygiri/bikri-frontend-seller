@@ -1,7 +1,8 @@
-<p-menubar [model]="items" [autoHide]="true" styleClass="bg-indigo-900 border-noround">
+<p-menubar [model]="items" [autoHide]="true" styleClass="bg-indigo-900 border-noround h-3rem">
     <ng-template pTemplate="end">
         <div>
-            <a routerLink="/sign-in" class="p-button p-ripple p-button-outlined p-button-sm font-bold shadow-6">
+            <a *ngIf="showSignInBtn" routerLinkActive="hidden" routerLink="/sign-in"
+                class="p-button p-ripple p-button-outlined p-button-sm font-bold shadow-6">
                 <span class="p-button-icon p-button-icon-left pi pi-user"></span> Sign in
             </a>
         </div>
